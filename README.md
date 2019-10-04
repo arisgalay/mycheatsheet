@@ -57,7 +57,7 @@ z %= x; //Modolu and assignment
 
 Given that x = 5 , the table below explains the comparison operators:
 | Operator|Description|Comparing|Returns|
-| ------- |:---------:|:---------:|:---------:|
+| ------- | :---------: | :---------: | :---------: |
 | == | Equal to |x == 8 |false |
 | === | Equal value and Equal type |x === 5|true|
 | == | Equal to |x == 8 |false |
