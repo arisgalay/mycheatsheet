@@ -48,20 +48,22 @@ Variables declared with const keyword can't be reassigned, while let and var can
 
 #### Comparison Operator
 Given that x = 5 , the table below explains the comparison operators:
-| Operator |        Description               | Comparing | Returns |
-| -------- | :------------------------------: | :-------: | :-----: |
-| ==       |          Equal to                |  x == 8   |  false  |
-| ===      | Equal value and Equal type       |  x === 5  |  true   |
-| !=       |          not equal               |  x != 8   |  true   |
-| !==      | Not equal value or not equal type|  x !== 5  |  false  |
-| >        |        Greater Than              |  x >  8   |  false  |
-| <        |        Less    Than              |  x <  8   |  true   |
-| >=       |    Greater Than or Equal to      |  x >=  8  |  false  |
-| <=       |    Less Than or Equal to         |  x <=  8  |  true   |
+
+| Operator |        Description                | Comparing | Returns |
+| -------- | :-------------------------------: | :-------: | :-----: |
+| ==       |          Equal to                 |  x == 8   |  false  |
+| ===      | Equal value and Equal type        |  x === 5  |  true   |
+| !=       |          not equal                |  x != 8   |  true   |
+| !==      | Not equal value or not equal type |  x !== 5  |  false  |
+| >        |        Greater Than               |  x >  8   |  false  |
+| <        |        Less    Than               |  x <  8   |  true   |
+| >=       |    Greater Than or Equal to       |  x >=  8  |  false  |
+| <=       |    Less Than or Equal to          |  x <=  8  |  true   |
 
 #### Logical Operator
 Given that x = 6 and y = 3, the table below explains the logical operators: 
-| Operator | Description | Comparing            | Returns |
+
+| Operator | Description |      Comparing       | Returns |
 | -------- | :---------: | :------------------: | :-----: |
 | &&       |     and     | (x < 10 && y > 1)    |  true   |
 | ||       |     or      | (x == 5 || y == 5)   |  false  |
