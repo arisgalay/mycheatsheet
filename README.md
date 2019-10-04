@@ -62,6 +62,7 @@ Given that x = 5 , the table below explains the comparison operators:
 
 #### Logical Operator
 Given that x = 6 and y = 3, the table below explains the logical operators: 
+
 | Operator |   Description  |   Comparing        |    Returns     |
 | -------- | :------------: | :----------------: | :------------: |
 | &&       |     and        | (x < 10 && y > 1)  |  true          |
