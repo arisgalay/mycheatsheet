@@ -63,11 +63,11 @@ Given that x = 5 , the table below explains the comparison operators:
 #### Logical Operator
 Given that x = 6 and y = 3, the table below explains the logical operators: 
 
-| Operator |   Description  |   Comparing        |    Returns     |
-| -------- | :------------: | :----------------: | :------------: |
-| &&       |     and        | (x < 10 && y > 1)  |  true          |
-| ||       |     or         | (x == 5 || y == 5) |  false         |
-| !        |     no         | !(x == y)          |  true          |
+| Operator |   Description  |   Comparing        |    Returns   |
+| -------- | :------------: | :----------------: | :----------: |
+| &&       |     and        | (x < 10 && y > 1)  |  true        |
+| ll       |     or         | (x == 5 ll y == 5) |  false       |
+| !        |     no         | !(x == y)          |  true        |
 
 #### Conditional (Ternary) Operator
 variablename = (condition) ? value1:value2 
