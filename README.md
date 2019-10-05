@@ -1,4 +1,4 @@
-#### Variables
+### Variables
 Variable declaration: var, const, let.
 Variables declared with const keyword can't be reassigned, while let and var can.
 ```js
@@ -10,7 +10,7 @@ Variables declared with const keyword can't be reassigned, while let and var can
   console.log(person); // "John", reassignment is allowed with let
 ```
 
-#### Data types
+### Data types
 ```js
   var work; //Undefined
   var love = true; //Boolean
@@ -23,7 +23,7 @@ Variables declared with const keyword can't be reassigned, while let and var can
   }; //Objects
 ```
 
-#### Arithmetic Operator
+### Arithmetic Operator
 | Operator |  Description   |
 | -------- | :------------: |
 | +        |    Additon     |
@@ -35,7 +35,7 @@ Variables declared with const keyword can't be reassigned, while let and var can
 | ++       |   Increment    |
 | --       |   Decrement    |
 
-#### Assignment Operator
+### Assignment Operator
 ```js
   var x = 5,y = 10, z;
   z = x + y; //Simple assignment
@@ -46,7 +46,7 @@ Variables declared with const keyword can't be reassigned, while let and var can
   z %= x; //Modolu and assignment
 ```
 
-#### Comparison Operator
+### Comparison Operator
 Given that x = 5 , the table below explains the comparison operators:
 
 | Operator |        Description                | Comparing | Returns |
@@ -60,7 +60,7 @@ Given that x = 5 , the table below explains the comparison operators:
 | >=       |    Greater Than or Equal to       |  x >=  8  |  false  |
 | <=       |    Less Than or Equal to          |  x <=  8  |  true   |
 
-#### Logical Operator
+### Logical Operator
 Given that x = 6 and y = 3, the table below explains the logical operators: 
 
 | Operator |   Description  |   Comparing        |    Returns   |
@@ -69,13 +69,13 @@ Given that x = 6 and y = 3, the table below explains the logical operators:
 | ll       |     or         | (x == 5 ll y == 5) |  false       |
 | !        |     no         | !(x == y)          |  true        |
 
-#### Conditional (Ternary) Operator
+### Conditional (Ternary) Operator
 variablename = (condition) ? value1:value2 
 ```js
   var voteable = (age < 18) ? "Too young":"Old enough";
 ```
 
-#### Function
+### Function
 ```js
    function functionName() {
    console.log("Hello World");
@@ -89,7 +89,7 @@ variablename = (condition) ? value1:value2
  testFun("Hello", "World"); //Adding value & calling the function
 ```
 
-#### If, If Else Statement
+### If, If Else Statement
 ```js
  if (condition is true) {
    statement is executed
@@ -108,7 +108,7 @@ variablename = (condition) ? value1:value2
  } 
 ```
 
-#### Switch Statement
+### Switch Statement
 case "a": , case 1:
 ```js
 //case values are tested with strict equality (===).
@@ -136,7 +136,7 @@ case "a": , case 1:
     result = "4 alone";
 }
 ```
-#### Loops
+### Loops
 *  for — The most common way to create a loop in JavaScript
 *  while — Sets up conditions under which aloop executes
 *  do while — Similar to the while loop but it executes at least once and performs a check at the end to s
@@ -160,7 +160,7 @@ case "a": , case 1:
   }
   while (i < 10); 
 ```
-#### Array Methods
+### Array Methods
 ```js
 var fruit = ["Banana", "Apple", "Pear"];
 ```
@@ -178,12 +178,12 @@ var fruit = ["Banana", "Apple", "Pear"];
 *  toString() — Converts elements to strings
 *  unshift() —Adds a new element to the beginning
 *  valueOf() — Returns the primitive value of the specified object
-#### Array Sort
+### Array Sort
 
-#### Array Iteration
+### Array Iteration
 
-#### String Methods
-
+### String Methods 
+[String Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 *  charAt() — Returns a character at a specified position inside a string
     ```js
     var sentence = 'The quick brown fox jumps over the lazy dog.';
@@ -216,20 +216,119 @@ var fruit = ["Banana", "Apple", "Pear"];
     "".concat(4, 5); // "45"
     ```
 *  fromCharCode() — Returns a string created from the specified sequence of UTF-16 code units
+    ```js
+    console.log(String.fromCharCode(189, 43, 190, 61));
+    // expected output: "½+¾="
+    ```
 *  indexOf() — Provides the position of the first occurrence of a specified text within a string
+    ```js
+    var paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+    var searchTerm = 'dog';
+    var indexOfFirst = paragraph.indexOf(searchTerm);
+
+    console.log('The index of the first "' + searchTerm + '" from the beginning is ' + indexOfFirst);
+    // expected output: "The index of the first "dog" from the beginning is 40"
+    console.log('The index of the 2nd "' + searchTerm + '" is ' + paragraph.indexOf(searchTerm, (indexOfFirst + 1)));
+    // expected output: "The index of the 2nd "dog" is 52"
+    ```
 *  lastIndexOf() — Same as indexOf() but with the last occurrence, searching backward
+    ```js
+    var paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+    var searchTerm = 'dog';
+
+    console.log('The index of the first "' + searchTerm + '" from the end is ' + paragraph.lastIndexOf(searchTerm));
+    // expected output: "The index of the first "dog" from the end is 52"
+    ```
 *  match() — Retrieves the matches of a string against a search pattern
+    ```js
+    var paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
+    var regex = /[A-Z]/g;
+    var found = paragraph.match(regex);
+
+    console.log(found);
+    // expected output: Array ["T", "I"]
+    ```
 *  replace() — Find and replace specified text in a string
+     ```js
+    var p = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
+    var regex = /dog/gi;
+
+    console.log(p.replace(regex, 'ferret'));
+    // expected output: "The quick brown fox jumps over the lazy ferret. If the ferret reacted, was it really lazy?"
+    console.log(p.replace('dog', 'monkey'));
+    // expected output: "The quick brown fox jumps over the lazy monkey. If the dog reacted, was it really lazy?"
+    ```
 *  search() — Executes a search for a matching text and returns its position
+    ```js
+    var paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+    // any character that is not a word character or whitespace
+    var regex = /[^\w\s]/g;
+
+    console.log(paragraph.search(regex));
+    // expected output: 43
+    console.log(paragraph[paragraph.search(regex)]);
+    // expected output: "."
+    ```
 *  slice() — Extracts a section of a string and returns it as a new string
+    ```js
+    var str = 'The quick brown fox jumps over the lazy dog.';
+
+    console.log(str.slice(31));
+    // expected output: "the lazy dog."
+    console.log(str.slice(4, 19));
+    // expected output: "quick brown fox"
+    console.log(str.slice(-4));
+    // expected output: "dog."
+    console.log(str.slice(-9, -5));
+    // expected output: "lazy"
+    ```
 *  split() — Splits a string object into an array of strings at a specified position
+    ```js
+    var str = 'The quick brown fox jumps over the lazy dog.';
+    var words = str.split(' ');
+    console.log(words[3]);
+    // expected output: "fox"
+
+    var chars = str.split('');
+    console.log(chars[8]);
+    // expected output: "k"
+
+    var strCopy = str.split();
+    console.log(strCopy);
+    // expected output: Array ["The quick brown fox jumps over the lazy dog."]
+    ```
 *  substr() —  Similar to slice() but extracts a substring depending on a specified number of characters
+    ```js
+    var str = 'Mozilla';
+    
+    console.log(str.substr(1, 2));
+    // expected output: "oz"
+    console.log(str.substr(2));
+    // expected output: "zilla"
+    ```
 *  substring() — Also similar to slice() but can’t accept negative indices
+    ```js
+    var str = 'Mozilla';
+
+    console.log(str.substring(1, 3));
+    // expected output: "oz"
+    console.log(str.substring(2));
+    // expected output: "zilla"
+    ```
+*  trim() - Trims whitespace from the beginning and end of the string
+    ```js
+    var greeting = '   Hello world!   ';
+
+    console.log(greeting);
+    // expected output: "   Hello world!   ";
+    console.log(greeting.trim());
+    // expected output: "Hello world!";
+    ```
 *  toLowerCase() — Convert strings to lower case
 *  toUpperCase() — Convert strings to upper case
 *  valueOf() — Returns the primitive value (that has no properties or methods) of a string object
 
-#### Global Functions
+### Global Functions
 Global functions are functions built into every browser capable of running JavaScript.
 *  decodeURI() — Decodes a Uniform Resource Identifier (URI) created by encodeURI or similar
 *  decodeURIComponent() — Decodes a URI component
@@ -242,19 +341,9 @@ Global functions are functions built into every browser capable of running JavaS
 *  parseFloat() — Parses an argument and returns a floating point number
 *  parseInt() — Parses its argument and returns an integer
 
-#### Number Methods
-Number Properties
-*  MAX_VALUE — The maximum numeric value representable in JavaScript
-*  MIN_VALUE — Smallest positive numeric value representable in JavaScript
-*  NaN — The “Not-a-Number” value
-*  NEGATIVE_INFINITY — The negative Infinity value
-*  POSITIVE_INFINITY — Positive Infinity value
-Number Methods
-*  toExponential() — Returns the string with a rounded number written as exponential notation
-*  toFixed() — Returns the string of a number with a specified number of decimals
-*  toPrecision() — String of a number written with a specified length
-*  toString() — Returns a number as a string
-*  valueOf() — Returns a number as a number
+### Number Methods
+
+### Math Methods
 Math Properties
 *  E — Euler’s number
 *  LN2 — The natural logarithm of 2
@@ -283,5 +372,7 @@ Math Methods
 *  sin(x) — The sine of x (x is in radians)
 *  sqrt(x) — Square root of x
 *  tan(x) — The tangent of an angle
+*  toString() — Returns a number as a string
+*  valueOf() — Returns a number as a number
 
 [Javascript Cheatsheet](https://websitesetup.org/javascript-cheat-sheet/)
