@@ -183,12 +183,38 @@ var fruit = ["Banana", "Apple", "Pear"];
 #### Array Iteration
 
 #### String Methods
-```js 
-var person = "John Doe";
-```
+
 *  charAt() — Returns a character at a specified position inside a string
+    ```js
+    var sentence = 'The quick brown fox jumps over the lazy dog.';
+
+    var index = 4;
+    console.log('The character code ' + sentence.charCodeAt(index) + ' is equal to ' + sentence.charAt(index));
+    // expected output: "The character code 113 is equal to q"
+    ```
 *  charCodeAt() — Gives you the unicode of a character at that position
+    ```js
+    var sentence = 'The quick brown fox jumps over the lazy dog.';
+    var index = 4;
+
+    console.log('The character code ' + sentence.charCodeAt(index) + ' is equal to ' + sentence.charAt(index));
+    // expected output: "The character code 113 is equal to q"
+    ```
 *  concat() — Concatenates (joins) two or more strings into one
+    ```js
+    var hello = 'Hello, ';
+    console.log(hello.concat('Kevin', '. Have a nice day.'));
+    /* Hello, Kevin. Have a nice day. */
+
+    var greetList = ['Hello', ' ', 'Venkat', '!'];
+    "".concat(...greetList); // "Hello Venkat!"
+
+    "".concat({}); // [object Object]
+    "".concat([]); // ""
+    "".concat(null); // "null"
+    "".concat(true); // "true"
+    "".concat(4, 5); // "45"
+    ```
 *  fromCharCode() — Returns a string created from the specified sequence of UTF-16 code units
 *  indexOf() — Provides the position of the first occurrence of a specified text within a string
 *  lastIndexOf() — Same as indexOf() but with the last occurrence, searching backward
