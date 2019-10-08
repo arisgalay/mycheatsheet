@@ -53,3 +53,82 @@ every single element in the page is a node
 ```
 
 ### DOM Events
+```js
+ var btn = document.querySelector("#btn");
+ btn.addEventListener('click', function(e){
+     e.target; //find the target element
+ });
+
+
+ var removeBtn = document.querySelectorAll("removeBtn .delete");
+ //array nodeList
+ removeBtn.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+        const li = e.target.parentElement; //grab the all li
+        li.parentNode.removeChild(li); //grab the parent of li which is ul. then remove the child 
+      });
+ });
+
+ //create preventdefault behaviour
+ const myForm = document.querySelector("#myForm .btnSubmit");
+
+ myForm.addEventListener('submit', function(e){
+     e.preventDefault();
+ });
+```
+### Event Bubbling
+```js
+ const list = document.querySelector("#parent ul");
+ list.addEventListener('click',function(e){
+     if(e.target.className == "delete"){
+         const li = e.target.parentElement; //grab the target element
+         li.parentNode.removeChild(li); //grab the parent element ul and remove child li or
+         list.removeChild(li); // exactly the same as above example.
+     }
+ })
+
+```
+### Intearcting with forms
+```js
+ //Getting forms
+ document.forms[0]; //arrayIndex
+ document.forms["myForm"]; //idName
+
+ const myForm = document.forms["myForm"];
+ myForm.addEventListener("submit", function(e){
+     e.preventDefault();
+     const value = myForm.querySelector('input[type="text"]').value;
+     //Create element
+    const li = document.createElement("li");
+    const bookName = document.createElement("span");
+    const deleteBtn = document.createElement("span");
+    //Add content
+    bookName.textContent = value; 
+    deleteBtn.textContent = "delete";
+    //Add Classes
+    bookName.classList.add("name");
+    deleteBtn.classList.add("delete");
+    // append to document
+    li.appendChild(bookName);
+    li.appendChild(deleteBtn);
+ });
+```
+### Attributes
+```js
+ const list = document.querySelector("li");
+ list.getAttribute("class"); //check if list have class attributes
+ list.setAttribute("class", "newClass"); //add new attributes in class
+ list.hasAttribute("href"); //check if has href attributes
+ list.removeAttribute("class"); //remove class attributes
+```
+### Checkbox Events
+```js
+ const hideBox = document.querySelector("#hide"); //grab the checkbox
+ hideBox.addEventListener("change", function(e){
+     if(hideBox.checked){
+         list.style.display = "none";
+     }else{
+         list.style.display = "block";
+     }
+ });
+```
