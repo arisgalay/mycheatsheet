@@ -1,211 +1,126 @@
-### Variables
-Variable declaration: var, const, let.
-Variables declared with const keyword can't be reassigned, while let and var can.
+### jQuery
 ```js
-  const person = "Aris";
-  person = "John"; // Will raise an error, person can't be reassigned
+ var demo = $("#demo"); //getElementById , class , tags
+ demo.css({color: red}); //add CSS
 
-  let person = "Aris";
-  person = "John";
-  console.log(person); // "John", reassignment is allowed with let
+ /* Filter */
+ $("header nav li:first").css({border: "2px solid black"});
+ //first,last - get the child of selected element tag
+ //first:child , last:child - get the first element tag or last element tag
+ //li:even , li:odd - even 0 based
+ //section:not('#contact') - style all section except section with #contact
+//input[type='button'] - attribute filter
+```
+### Traversing DOM
+```js
+ $("header nav").next().css({border: "2px solid blue"}); //get the next element tag
+ $("header nav").prev().css({border: "2px solid blue"}); //get the previous element tag
+ $("#banner").parent().css({border: "2px solid red"}); //get the parent element tag
+ $("#nav-link").children().css({border: "2px solid pink"}); //get the all child element like li
+ //find class
+ $("#contact").find(".facebook").css({border: "2px solid green"});
+ $("#footer").closest(".container").css({border: "2px solid green"});
+```
+### Adding Content
+```js
+ var addCode = "<p>Add Now</p>"
+ $("#demo div").append(addCode); //adds content to the bottom of the element
+ $("#demo div").prepend(addCode); //adds content to the top of the element
+ $("#demo div p").before(addCode); //adds content before element
+ $("#demo div p").after(addCode); //adds content after element
+ html();
+ text();
+```
+### Wrap and Unwrap elements
+```js
+ wrap(); //wraps all matches element individually
+ unwrap(); //unwrap all matches element
+ wrapAll(); //wrap all elements combined with 1 single element
+```
+### Removing Content
+```js
+ .empty(); //empties the innerhtml inside elements
+ .remove(); //removes element completely
+
+```
+### Changing Attributes
+```js
+ removeAttr("type"); //remove attributes completly
+ attr("alt","this is an alternative"); //set or read attributes
+```
+### Controlling CSS
+```js
+css({
+    "width" : "250px",
+    "border": "2px solid black"
+});
+//Removing Class
+$("header .container").removeClass("container");
+//Add Class
+$("header > div").addClass("container");
+//Toggle Class
+var btn = $("#form a");
+btn[0].onclick = function(){
+    $("#main-content").toggleClass("open");
+    return false;
+};
+```
+### Binding & Unbinding Events
+```js
+ var myLis = $("header li");
+ myLis.on("click", function(){
+     $(this).css({"background-color" : "pink"});
+     myLis.off("click");
+ });
 ```
 
-### Data types
+* Document Ready
 ```js
-  var work; //Undefined
-  var love = true; //Boolean
-  var name = "Aris"; //Strings
-  var age = 20; //Number
-  var skill = ["HTML", "CSS", "Javascript"]; //Arrays
-  var myInfo = {
-    fistName: "Aris",
-    lastName: "Galay"
-  }; //Objects
+ $(document).on("ready", function(){
+     //method 1
+ });
+ $(document).ready(function(){
+     //method 2
+ });
+ 
+ $(function(){
+    //method 3
+ });
 ```
-
-### Arithmetic Operator
-| Operator |  Description   |
-| -------- | :------------: |
-| +        |    Additon     |
-| -        |  Subtraction   |
-|  *       | Multiplication |
-| **       | Exponentiation |
-| /        |    Division    |
-| %        |     Modolu     |
-| ++       |   Increment    |
-| --       |   Decrement    |
-
-### Assignment Operator
+* Window onload
 ```js
-  var x = 5,y = 10, z;
-  z = x + y; //Simple assignment
-  z += x; //Add and assignment
-  z -= x; //Subtract and assignment
-  z *= x; //Multiply and assignment
-  z /= x; //Divide and assignment
-  z %= x; //Modolu and assignment
+ $(window).on("load", function(){
+     //method 1
+ });
+ 
+ $(window).load(function(){
+     //method 2
+ });
 ```
-
-### Comparison Operator
-Given that x = 5 , the table below explains the comparison operators:
-
-| Operator |        Description                | Comparing | Returns |
-| -------- | :-------------------------------: | :-------: | :-----: |
-| ==       |          Equal to                 |  x == 8   |  false  |
-| ===      | Equal value and Equal type        |  x === 5  |  true   |
-| !=       |          not equal                |  x != 8   |  true   |
-| !==      | Not equal value or not equal type |  x !== 5  |  false  |
-| >        |        Greater Than               |  x >  8   |  false  |
-| <        |        Less    Than               |  x <  8   |  true   |
-| >=       |    Greater Than or Equal to       |  x >=  8  |  false  |
-| <=       |    Less Than or Equal to          |  x <=  8  |  true   |
-
-### Logical Operator
-Given that x = 6 and y = 3, the table below explains the logical operators: 
-
-| Operator |   Description  |   Comparing        |    Returns   |
-| -------- | :------------: | :----------------: | :----------: |
-| &&       |     and        | (x < 10 && y > 1)  |  true        |
-| ll       |     or         | (x == 5 ll y == 5) |  false       |
-| !        |     no         | !(x == y)          |  true        |
-
-### Conditional (Ternary) Operator
-variablename = (condition) ? value1:value2 
+### Animations
 ```js
-  var voteable = (age < 18) ? "Too young":"Old enough";
+ $("#btn").on("click", function(){
+     $(this).animate({"width" : "300px", "height" : "100px"}, 2000 , "linear", function(){
+         console.log("do something");   
+     });
+ });
+ //Animation method
+fadeOut(2000);
+fadeIn(500);
+hide(1000);
+show(1000);
+toggle(1000);
 ```
-
-### Function
+* Sliding Elements
 ```js
-   function functionName() {
-   console.log("Hello World");
-  }
-  functionName(); //Calling a function
-
-  //Passing Values to Function
- function testFun(param1, param2) {
-   console.log(param1, param2);
- }
- testFun("Hello", "World"); //Adding value & calling the function
+ slideUp(200);
+ slideDown(2000,function(){
+     //callback
+ });
+ slideToggle();
 ```
-
-### If, If Else Statement
+### Plugins
 ```js
- if (condition is true) {
-   statement is executed
- }
-
- //chaining if else
- if (condition1) {
-   statement1
- } else if (condition2) {
-   statement2
- } else if (condition3) {
-   statement3
- . . .
- } else {
-   statementN
- } 
+ ResponsiveSlideJs
+ 
 ```
-
-### Switch Statement
-case "a": , case 1:
-```js
-//case values are tested with strict equality (===).
- switch(num) {
-  case value1:
-    statement1;
-    break;
-  case value2:
-    statement2;
-    break;
- ...
-  case valueN:
-    statementN;
-    break;
- }
-
-//Multiple Identical Options
- switch(val) {
-  case 1:
-  case 2:
-  case 3:
-    result = "1, 2, or 3";
-    break;
-  case 4:
-    result = "4 alone";
-}
-```
-### Loops
-*  for — The most common way to create a loop in JavaScript
-*  while — Sets up conditions under which aloop executes
-*  do while — Similar to the while loop but it executes at least once and performs a check at the end to s
-*  if the condition is met to execute again
-*  break —Used to stop and exit the cycle at certain conditions
-*  continue — Skip parts of the cycle if certain conditions are met
-```js
-  //For Loop
-  for (i = 0; i < 5; i++) {
-  text += "The number is " + i + "<br>";
-  }
-  //While Loop
-  while (i < 10) {
-  text += "The number is " + i;
-  i++;
-  }
-  //Do While Loop
-  do {
-  text += "The number is " + i;
-  i++;
-  }
-  while (i < 10); 
-```
-
-### Global Functions
-Global functions are functions built into every browser capable of running JavaScript.
-*  decodeURI() — Decodes a Uniform Resource Identifier (URI) created by encodeURI or similar
-*  decodeURIComponent() — Decodes a URI component
-*  encodeURI() — Encodes a URI into UTF-8
-*  encodeURIComponent() — Same but for URI components
-*  eval() — Evaluates JavaScript code represented as a string
-*  isFinite() — Determines whether a passed value is a finite number
-*  isNaN() — Determines whether a value is NaN or not
-*  Number() —- Returns a number converted from its argument
-*  parseFloat() — Parses an argument and returns a floating point number
-*  parseInt() — Parses its argument and returns an integer
-
-### Number Methods
-
-### Math Methods
-Math Properties
-*  E — Euler’s number
-*  LN2 — The natural logarithm of 2
-*  LN10 — Natural logarithm of 10
-*  LOG2E — Base 2 logarithm of E
-*  LOG10E — Base 10 logarithm of E
-*  PI — The number PI
-*  SQRT1_2 — Square root of 1/2
-*  SQRT2 — The square root of 2
-Math Methods
-*  abs(x) — Returns the absolute (positive) value of x
-*  acos(x) — The arccosine of x, in radians
-*  asin(x) — Arcsine of x, in radians
-*  atan(x) — The arctangent of x as a numeric value
-*  atan2(y,x) — Arctangent of the quotient of its arguments
-*  ceil(x) — Value of x rounded up to its nearest integer
-*  cos(x) — The cosine of x (x is in radians)
-*  exp(x) — Value of Ex
-*  floor(x) — The value of x rounded down to its nearest integer
-*  log(x) — The natural logarithm (base E) of x
-*  max(x,y,z,...,n) — Returns the number with the highest value
-*  min(x,y,z,...,n) — Same for the number with the lowest value
-*  pow(x,y) — X to the power of y
-*  random() — Returns a random number between 0 and 1
-*  round(x) — The value of x rounded to its nearest integer
-*  sin(x) — The sine of x (x is in radians)
-*  sqrt(x) — Square root of x
-*  tan(x) — The tangent of an angle
-*  toString() — Returns a number as a string
-*  valueOf() — Returns a number as a number
-
-[Javascript Cheatsheet](https://websitesetup.org/javascript-cheat-sheet/)
